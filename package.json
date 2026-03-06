@@ -1,0 +1,126 @@
+{
+  "name": "vsnippet-engine",
+  "displayName": "VSnippet Engine",
+  "description": "Local intelligent snippet autocomplete with Trie-based matching.",
+  "version": "0.1.0",
+  "publisher": "your-publisher-id",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/vsnippet-engine.git"
+  },
+  "homepage": "https://github.com/your-username/vsnippet-engine#readme",
+  "bugs": {
+    "url": "https://github.com/your-username/vsnippet-engine/issues"
+  },
+  "icon": "assets/icon.png",
+  "keywords": [
+    "snippets",
+    "autocomplete",
+    "inline-completion",
+    "trie",
+    "local-ai",
+    "productivity"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Snippets",
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:vsnippetEngine.insertSnippet",
+    "onCommand:vsnippetEngine.saveSnippet",
+    "onCommand:vsnippetEngine.reloadSnippets",
+    "onCommand:vsnippetEngine.openSnippetFolder"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vsnippetEngine.insertSnippet",
+        "title": "Insert Snippet"
+      },
+      {
+        "command": "vsnippetEngine.saveSnippet",
+        "title": "Save Snippet"
+      },
+      {
+        "command": "vsnippetEngine.reloadSnippets",
+        "title": "Reload Snippets"
+      },
+      {
+        "command": "vsnippetEngine.openSnippetFolder",
+        "title": "Open Snippet Folder"
+      }
+    ],
+    "configuration": {
+      "title": "VSnippet Engine",
+      "properties": {
+        "vsnippetEngine.snippetFolder": {
+          "type": "string",
+          "default": "~/.codesnippet-engine",
+          "description": "Root folder where snippets are stored, grouped by language."
+        },
+        "vsnippetEngine.enableInlineAutocomplete": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable ghost-text inline suggestions from local snippets."
+        },
+        "vsnippetEngine.enableTrieMatching": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Trie-based prefix matching."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "vsnippetEngine.insertSnippet",
+        "key": "ctrl+alt+s",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vsnippetEngine.insertSnippet",
+        "key": "ctrl+shift+alt+s",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vsnippetEngine.insertSnippet",
+        "key": "ctrl+k ctrl+i",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vsnippetEngine.saveSnippet",
+        "key": "ctrl+alt+a",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vsnippetEngine.saveSnippet",
+        "key": "ctrl+shift+alt+a",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "vsnippetEngine.saveSnippet",
+        "key": "ctrl+k ctrl+a",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "prepublish": "npm run compile",
+    "package": "vsce package",
+    "publish:patch": "vsce publish patch",
+    "publish:minor": "vsce publish minor"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.57",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.8.2"
+  }
+}
