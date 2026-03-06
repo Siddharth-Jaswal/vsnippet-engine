@@ -3,15 +3,15 @@
   "displayName": "VSnippet Engine",
   "description": "Local intelligent snippet autocomplete with Trie-based matching.",
   "version": "0.1.0",
-  "publisher": "your-publisher-id",
+  "publisher": "SiddharthJaswal",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/vsnippet-engine.git"
+    "url": "https://github.com/Siddharth-Jaswal/vsnippet-engine.git"
   },
-  "homepage": "https://github.com/your-username/vsnippet-engine#readme",
+  "homepage": "https://github.com/Siddharth-Jaswal/vsnippet-engine#readme",
   "bugs": {
-    "url": "https://github.com/your-username/vsnippet-engine/issues"
+    "url": "https://github.com/Siddharth-Jaswal/vsnippet-engine/issues"
   },
   "icon": "assets/icon.png",
   "keywords": [
