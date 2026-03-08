@@ -2,7 +2,7 @@
   "name": "vsnippet-engine",
   "displayName": "VSnippet Engine",
   "description": "Production-ready local snippet autocomplete for VS Code with ghost text, Tab commit, and Trie matching.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "SiddharthJaswal",
   "license": "MIT",
   "repository": {
