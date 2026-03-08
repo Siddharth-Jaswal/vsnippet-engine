@@ -1,8 +1,8 @@
 {
   "name": "vsnippet-engine",
   "displayName": "VSnippet Engine",
-  "description": "Local intelligent snippet autocomplete with Trie-based matching.",
-  "version": "0.1.0",
+  "description": "Production-ready local snippet autocomplete for VS Code with ghost text, Tab commit, and Trie matching.",
+  "version": "0.2.0",
   "publisher": "SiddharthJaswal",
   "license": "MIT",
   "repository": {
@@ -74,6 +74,11 @@
           "type": "boolean",
           "default": true,
           "description": "Enable Trie-based prefix matching."
+        },
+        "vsnippetEngine.prioritizeInlineCompletions": {
+          "type": "boolean",
+          "default": true,
+          "description": "When true, prioritize VSnippet inline suggestions on Tab and prefer snippet suggestions in IntelliSense."
         }
       }
     },
@@ -107,6 +112,11 @@
         "command": "vsnippetEngine.saveSnippet",
         "key": "ctrl+k ctrl+a",
         "when": "editorTextFocus"
+      },
+      {
+        "command": "editor.action.inlineSuggest.commit",
+        "key": "tab",
+        "when": "editorTextFocus && inlineSuggestionVisible && vsnippetEngine.hasInlineCandidate && config.vsnippetEngine.prioritizeInlineCompletions"
       }
     ]
   },

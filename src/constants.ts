@@ -1,5 +1,8 @@
 export const EXTENSION = {
   configRoot: "vsnippetEngine",
+  context: {
+    hasInlineCandidate: "vsnippetEngine.hasInlineCandidate"
+  },
   commands: {
     insertSnippet: "vsnippetEngine.insertSnippet",
     saveSnippet: "vsnippetEngine.saveSnippet",
@@ -9,6 +12,7 @@ export const EXTENSION = {
   config: {
     snippetFolder: "vsnippetEngine.snippetFolder",
     enableInlineAutocomplete: "vsnippetEngine.enableInlineAutocomplete",
-    enableTrieMatching: "vsnippetEngine.enableTrieMatching"
+    enableTrieMatching: "vsnippetEngine.enableTrieMatching",
+    prioritizeInlineCompletions: "vsnippetEngine.prioritizeInlineCompletions"
   }
 } as const;

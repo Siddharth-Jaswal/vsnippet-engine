@@ -16,10 +16,12 @@ export function extractTriggerRegion(
   }
 
   const keyPrefix = match[1];
-  const fullMatch = match[0];
-  const start = position.translate(0, -fullMatch.length);
+  const trailing = match[2] ?? "";
+  const startOffset = keyPrefix.length + trailing.length;
+  const start = position.translate(0, -startOffset);
+  const end = position.translate(0, -trailing.length);
   return {
     keyPrefix,
-    range: new vscode.Range(start, position)
+    range: new vscode.Range(start, end)
   };
 }

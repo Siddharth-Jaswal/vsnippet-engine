@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import { EXTENSION } from "./constants";
+import { longestSuffixPrefixOverlap } from "./overlap";
 import { extractTriggerRegion } from "./prefix";
 import { SnippetManager } from "./snippetManager";
 
@@ -25,8 +26,9 @@ export function createInlineCompletionProvider(manager: SnippetManager): vscode.
       }
 
       const linePrefix = document.lineAt(position.line).text.slice(0, position.character);
-      const insertText = first.body.startsWith(linePrefix) ? first.body.slice(linePrefix.length) : first.body;
-      const range = first.body.startsWith(linePrefix) ? new vscode.Range(position, position) : trigger.range;
+      const overlap = longestSuffixPrefixOverlap(linePrefix, first.body);
+      const insertText = overlap > 0 ? first.body.slice(overlap) : first.body;
+      const range = overlap > 0 ? new vscode.Range(position, position) : trigger.range;
       if (!insertText) {
         return [];
       }
