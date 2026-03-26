@@ -47,7 +47,6 @@ VSnippet is built for developers who want snippet speed without cloud latency or
 
 ## Animated Product Tour
 
-Demo assets live in `assets/demo/`. For recording steps, see [Demo Capture Guide](./docs/DEMO_CAPTURE_GUIDE.md).
 
 ### 1) Save selected code as a snippet
 
